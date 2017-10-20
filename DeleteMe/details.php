@@ -2,20 +2,13 @@
 <html>
 <head>
 	<title>AmbiLamp</title>
-	<link rel="stylesheet" type="text/css" href="header.css">
-	<link rel="stylesheet" type="text/css" href="details.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/details.css">
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <ul>
-    <li> <img src="https://raw.githubusercontent.com/ProjectInABox/intro_to_iot_ambilamp/master/lightbox-base-3.jpg">></li>
-    <li><a href="index.html">AmbiLamp</a></li>
-    <li><a href="details.html">Details</a></li>
-  </ul>	
-</header>
+<?php
+  include "header.php";
+?>
 
 <!-- Buttons and Canvases -->
 <input type="button" id="temp-btn" class="btn" value="View Temperature Chart" onclick="drawTemp()">
@@ -125,7 +118,7 @@
 </div>
 
 
-<script type="text/javascript" src="details.js"></script>
+<script type="text/javascript" src="assets/js/details.js"></script>
 
 </body>
 </html>

@@ -2,28 +2,28 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<link rel="stylesheet" type="text/css" href="header.css">
-	<script src="jscolor.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/index.css">
+	<script src="./assets/jscolor.js"></script>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <ul>
-    <li> <img src="https://raw.githubusercontent.com/ProjectInABox/intro_to_iot_ambilamp/master/lightbox-base-3.jpg">></li>
-    <li><a href="index.html">AmbiLamp</a></li>
-    <li><a href="details.html">Details</a></li>
-  </ul>	
-</header>
+<?php
+  include "GPIO.php";
+  include "header.php";
+
+  $color = "EFFFC9";
+  if (isset($_POST['set_color'])) {
+    $color = $_POST['color'];
+  }
+?>
 
 <!-- JSColor Picker -->
-<input type="button" class="jscolor" id="picker" value="EFFFC9">
+<input type="button" class="jscolor" id="picker" onchange="update(this.jscolor)" onfocusout="apply()" value=<?php echo "'" . $color . "'"; ?> >
 
 <!-- Form -->
-<form>
-	<input type="text" id="color">
+<form method="POST">
+	<input type="text" id="color" name="color">
+  <input type="submit" id="smt" name="set_color" hidden>
 	<input type="submit" value="Set as Default" id="set_default">
 </form>
 
@@ -49,6 +49,6 @@
 
 </div>
 
-<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="assets/js/index.js"></script>
 </body>
 </html>
